@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body{font-family:Poppins,sans-serif}
+.rose-bg{
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("https://images.unsplash.com/photo-1519681393784-d120267933ba");
+background-size:cover;
+background-position:center;
+}
+.card{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(20px);
+}
+.fade{opacity:0;transform:translateY(30px);transition:1s ease}
+.fade.show{opacity:1;transform:none}
+.love{
+position:fixed;
+bottom:-40px;
+animation:float linear infinite;
+opacity:.8;
+}
+@keyframes float{
+to{transform:translateY(-110vh)}
+}
+</style>
+</head>
+
+<body class="rose-bg min-h-screen flex items-center justify-center px-4 text-white overflow-hidden">
+
+<div id="bg-love"></div>
+
+<div class="card max-w-xl w-full rounded-3xl shadow-2xl p-8 sm:p-10 text-center">
+
+<h1 class="text-4xl sm:text-5xl mb-4 fade text-violet-400" style="font-family:Playfair Display">
+Hpy Berthdayhh
+</h1>
+
+<p class="text-white/90 text-lg mb-10 fade">
+To the one my heart chose without hesitation
+</p>
+
+<div class="space-y-10">
+
+<div class="fade">
+<p class="text-xl">Your smile feels like home.</p>
+<p class="text-white/80 mt-2">Soft, warm, unforgettable.</p>
+</div>
+
+<div class="fade">
+<p class="text-xl">This day exists for one reason.</p>
+<p class="text-white/80 mt-2">To celebrate you.</p>
+</div>
+
+<div class="fade">
+<p class="text-xl">You mean more than words.</p>
+<p class="text-white/80 mt-2">More than moments.</p>
+</div>
+
+</div>
+
+<button id="btn" class="mt-14 px-10 py-3 bg-white text-rose-600 rounded-full font-semibold hover:scale-105 transition">
+Open My Heart 💝
+</button>
+
+<div id="final" class="hidden mt-2 fade">
+<p class="text-2xl mb-3 text-pink-400 drop-shadow-lg">
+I love you.
+</p>
+<p class="text-rose-200 drop-shadow-md">
+Today. Tomorrow. Always.
+</p>
+</div>
+
+
+</div>
+
+<script>
+const fades=document.querySelectorAll(".fade")
+let i=0
+function reveal(){
+if(i<fades.length){fades[i].classList.add("show");i++}
+else{
+document.getElementById("final").classList.remove("hidden")
+setTimeout(()=>document.getElementById("final").classList.add("show"),50)
+}
+}
+document.getElementById("btn").onclick=reveal
+reveal()
+
+const box=document.getElementById("bg-love")
+const emojis=["❤️","💖","💕","💗","💘","🌹"]
+for(let j=0;j<30;j++){
+let e=document.createElement("div")
+e.className="love"
+e.innerText=emojis[Math.floor(Math.random()*emojis.length)]
+e.style.left=Math.random()*100+"vw"
+e.style.fontSize=Math.random()*20+16+"px"
+e.style.animationDuration=Math.random()*6+6+"s"
+box.appendChild(e)
+}
+</script>
+
+</body>
+</html>

@@ -262,7 +262,7 @@
         </div>
 
         <div class="absolute inset-0 z-0 flex items-center justify-center opacity-10 pointer-events-none">
-            <img src="https://i.pinimg.com/originals/9e/f3/9d/9ef39d09c788675373a216db738865f1.jpg"
+            <img src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?auto=format&fit=crop&w=1200&q=80"
                 alt="Aesthetic Background" class="w-[600px] scale-150 grayscale blur-sm">
         </div>
     </section>
@@ -277,7 +277,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             <div class="glass-card p-4 space-y-6 flex flex-col group">
                 <div class="gif-frame group-hover:scale-105 transition-transform duration-700">
-                    <img src="https://i.pinimg.com/originals/47/9a/41/479a4103117904e5d5977936a2818321.jpg"
+                    <img src="https://images.unsplash.com/photo-1513245543132-31f507417b26?auto=format&fit=crop&w=800&q=80"
                         alt="Cat Couple 1">
                 </div>
                 <div class="p-4 pt-0 text-center">
@@ -289,7 +289,7 @@
 
             <div class="glass-card p-4 space-y-6 flex flex-col group">
                 <div class="gif-frame group-hover:scale-105 transition-transform duration-700">
-                    <img src="https://i.pinimg.com/originals/60/7b/70/607b703e86c068350b70b3469149480a.jpg"
+                    <img src="https://images.unsplash.com/photo-1494256997604-768d1f608cac?auto=format&fit=crop&w=800&q=80"
                         alt="Cat Couple 2">
                 </div>
                 <div class="p-4 pt-0 text-center">
@@ -301,7 +301,7 @@
 
             <div class="glass-card p-4 space-y-6 flex flex-col group">
                 <div class="gif-frame group-hover:scale-105 transition-transform duration-700">
-                    <img src="https://i.pinimg.com/originals/f5/62/7b/f5627b38dfdf7b173255ef84128f6d.jpg"
+                    <img src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&w=800&q=80"
                         alt="Cat Couple 3">
                 </div>
                 <div class="p-4 pt-0 text-center">
@@ -382,7 +382,7 @@
         <div class="max-w-xl w-full text-center space-y-10">
             <div class="relative w-48 h-48 mx-auto">
                 <div class="absolute -inset-4 bg-romantic-pink/20 blur-3xl rounded-full animate-pulse"></div>
-                <img src="https://i.pinimg.com/originals/db/7f/70/db7f70b77af656350b70b3469149480a.jpg"
+                <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=600&q=80"
                     alt="Sweet Cat Couple"
                     class="relative z-10 w-full rounded-3xl border border-white/10 p-2 glass shadow-2xl">
             </div>
@@ -451,7 +451,7 @@
             dot.style.left = Math.random() * 90 + '%'; dot.style.top = '-50px'; arena.appendChild(dot);
             const anim = dot.animate([{ top: '-50px' }, { top: '450px' }], { duration: 3000 });
             dot.onclick = () => { catchScore++; catchScoreEl.textContent = catchScore; dot.remove(); confetti({ particleCount: 10, origin: { x: dot.offsetLeft / window.innerWidth, y: 0.5 } }); };
-            anim.onfinish = () => dot.remove();
+            anim.onfinish = () => { if (dot.parentNode) dot.remove(); }
         }
 
         const grid = document.getElementById('memory-grid');

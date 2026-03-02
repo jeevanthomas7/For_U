@@ -1,115 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Miss You So Much ❤️</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
 
-<style>
-body{font-family:Poppins,sans-serif}
-.rose-bg{
-background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-url("https://images.unsplash.com/photo-1519681393784-d120267933ba");
-background-size:cover;
-background-position:center;
-}
-.card{
-background:rgba(255,255,255,.15);
-backdrop-filter:blur(20px);
-}
-.fade{opacity:0;transform:translateY(30px);transition:1s ease}
-.fade.show{opacity:1;transform:none}
-.love{
-position:fixed;
-bottom:-40px;
-animation:float linear infinite;
-opacity:.8;
-}
-@keyframes float{
-to{transform:translateY(-110vh)}
-}
-</style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'luxury-dark': '#0a0a0c',
+                        'romantic-pink': '#ff85a1',
+                        'deep-plum': '#3c096c'
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Montserrat', 'sans-serif'],
+                        'cursive': ['Cormorant Garamond', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --accent: #ff85a1;
+            --bg-dark: #0a0a0c;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .mesh-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(at 0% 0%, rgba(60, 9, 108, 0.4) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(255, 133, 161, 0.2) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(60, 9, 108, 0.4) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(255, 133, 161, 0.2) 0px, transparent 50%);
+            z-index: -1;
+            animation: drift 15s ease infinite alternate;
+        }
+
+        @keyframes drift {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+
+            100% {
+                transform: scale(1.1) rotate(2deg);
+            }
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-12px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .typewriter-cursor::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+            color: var(--accent);
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .glow-btn {
+            background: linear-gradient(45deg, #ff85a1, #7b2cbf);
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(255, 133, 161, 0.3);
+        }
+
+        .glow-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 133, 161, 0.5);
+            filter: brightness(1.1);
+        }
+
+        #mobile-menu {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            visibility: hidden;
+            opacity: 0;
+            transform: translateX(100%);
+        }
+
+        #mobile-menu.active {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .gif-frame {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 16px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .gif-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .game-header {
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 24px 24px 0 0;
+        }
+
+        .neo-glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(255, 133, 161, 0.3);
+            border: 1px solid rgba(255, 133, 161, 0.2);
+        }
+
+        #catch-arena {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #0a0a0c, #1a0a1d);
+            border-radius: 0 0 24px 24px;
+            cursor: crosshair;
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            padding: 1.5rem;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3c096c;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
-<body class="rose-bg min-h-screen flex items-center justify-center px-4 text-white overflow-hidden">
+<body class="antialiased selection:bg-romantic-pink/30">
 
-<div id="bg-love"></div>
+    <div class="mesh-bg"></div>
+    <canvas id="star-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
-<div class="card max-w-xl w-full rounded-3xl shadow-2xl p-8 sm:p-10 text-center">
+    <header
+        class="fixed top-0 w-full z-50 px-6 py-5 md:px-12 flex justify-between items-center bg-transparent backdrop-blur-sm border-b border-white/5">
+        <div class="font-serif text-2xl text-romantic-pink tracking-tighter italic">Ponnehhh ❤️</div>
 
-<h1 class="text-4xl sm:text-5xl mb-4 fade text-violet-400" style="font-family:Playfair Display">
-Hpy Berthdayhh
-</h1>
+        <nav class="hidden md:flex gap-10 text-[10px] tracking-[0.4em] font-semibold opacity-60">
+            <a href="#hero" class="hover:opacity-100 transition-opacity">HOME</a>
+            <a href="#reasons" class="hover:opacity-100 transition-opacity">REASONS</a>
+            <a href="#games" class="hover:opacity-100 transition-opacity">PLAY</a>
+            <a href="#final" class="hover:opacity-100 transition-opacity">MESSAGE</a>
+        </nav>
 
-<p class="text-white/90 text-lg mb-10 fade">
-To the one my heart chose without hesitation
-</p>
+        <button id="menu-btn" class="md:hidden text-romantic-pink focus:outline-none p-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </header>
 
-<div class="space-y-10">
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[60] bg-luxury-dark/98 backdrop-blur-3xl lg:hidden flex flex-col items-center justify-center space-y-12">
+        <button id="close-menu" class="absolute top-6 right-6 text-romantic-pink p-4">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <a href="#hero"
+            class="mobile-link text-4xl font-serif italic text-white/50 hover:text-romantic-pink tracking-widest">Home</a>
+        <a href="#reasons"
+            class="mobile-link text-4xl font-serif italic text-white/50 hover:text-romantic-pink tracking-widest">Reasons</a>
+        <a href="#games"
+            class="mobile-link text-4xl font-serif italic text-white/50 hover:text-romantic-pink tracking-widest">Play</a>
+        <a href="#final"
+            class="mobile-link text-4xl font-serif italic text-white/50 hover:text-romantic-pink tracking-widest">Message</a>
+    </div>
 
-<div class="fade">
-<p class="text-xl">Your smile feels like home.</p>
-<p class="text-white/80 mt-2">Soft, warm, unforgettable.</p>
-</div>
+    <section id="hero"
+        class="relative min-h-screen flex flex-col items-center justify-center px-6 text-center pt-24 pb-12 overflow-hidden">
+        <div class="z-10 max-w-4xl space-y-10">
+            <div
+                class="inline-block px-4 py-1.5 rounded-full border border-romantic-pink/30 bg-romantic-pink/5 text-[10px] tracking-[0.5em] text-romantic-pink uppercase font-bold animate-pulse">
+                Every second is for you
+            </div>
 
-<div class="fade">
-<p class="text-xl">This day exists for one reason.</p>
-<p class="text-white/80 mt-2">To celebrate you.</p>
-</div>
+            <h1 class="hero-title font-serif text-7xl md:text-9xl tracking-tight leading-[0.9] text-white">
+                I Miss <br> <span class="italic text-romantic-pink">You</span> <br> So Much
+            </h1>
 
-<div class="fade">
-<p class="text-xl">You mean more than words.</p>
+            <p id="typed-text" class="text-lg md:text-2xl font-light opacity-60 h-8 typewriter-cursor tracking-wide">
+            </p>
 
-<p class="text-white/80 mt-2">More than moments.</p>
-</div>
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center pt-8">
+                <button onclick="openHeartModal()"
+                    class="glow-btn px-12 py-5 rounded-full text-[11px] font-bold tracking-[0.3em] uppercase text-white shadow-2xl">
+                    Open My Heart
+                </button>
+                <a href="#reasons"
+                    class="px-12 py-5 glass text-[11px] font-bold tracking-[0.3em] uppercase hover:bg-white/5 transition-all">
+                    Explore Why
+                </a>
+            </div>
+        </div>
 
-</div>
+        <div class="absolute inset-0 z-0 flex items-center justify-center opacity-10 pointer-events-none">
+            <img src="https://i.pinimg.com/originals/9e/f3/9d/9ef39d09c788675373a216db738865f1.jpg"
+                alt="Aesthetic Background" class="w-[600px] scale-150 grayscale blur-sm">
+        </div>
+    </section>
 
-<button id="btn" class="mt-14 px-10 py-3 bg-white text-rose-600 rounded-full font-semibold hover:scale-105 transition">
-Open My Heart 💝
-</button>
+    <section id="reasons" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="mb-20 text-center md:text-left">
+            <h2 class="font-serif text-5xl md:text-7xl italic mb-6">Why You Are <span
+                    class="text-romantic-pink">Irreplaceable</span></h2>
+            <div class="w-24 h-1 bg-romantic-pink/40 mx-auto md:mx-0"></div>
+        </div>
 
-<div id="final" class="hidden mt-2 fade">
-<p class="text-2xl mb-3 text-pink-400 drop-shadow-lg">
-I love you.
-</p>
-<p class="text-rose-200 drop-shadow-md">
-Today. Tomorrow. Always.
-</p>
-</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div class="glass-card p-4 space-y-6 flex flex-col group">
+                <div class="gif-frame group-hover:scale-105 transition-transform duration-700">
+                    <img src="https://i.pinimg.com/originals/47/9a/41/479a4103117904e5d5977936a2818321.jpg"
+                        alt="Cat Couple 1">
+                </div>
+                <div class="p-4 pt-0 text-center">
+                    <h3 class="font-serif text-2xl italic">The Dawn Silence</h3>
+                    <p class="font-light text-sm opacity-60 leading-relaxed mt-4">The quiet moments before the world
+                        wakes up is when your absence is the loudest.</p>
+                </div>
+            </div>
 
+            <div class="glass-card p-4 space-y-6 flex flex-col group">
+                <div class="gif-frame group-hover:scale-105 transition-transform duration-700">
+                    <img src="https://i.pinimg.com/originals/60/7b/70/607b703e86c068350b70b3469149480a.jpg"
+                        alt="Cat Couple 2">
+                </div>
+                <div class="p-4 pt-0 text-center">
+                    <h3 class="font-serif text-2xl italic">Forgotten Echoes</h3>
+                    <p class="font-light text-sm opacity-60 leading-relaxed mt-4">Finding your scent or hearing a song —
+                        these little ghosts keep me company.</p>
+                </div>
+            </div>
 
-</div>
+            <div class="glass-card p-4 space-y-6 flex flex-col group">
+                <div class="gif-frame group-hover:scale-105 transition-transform duration-700">
+                    <img src="https://i.pinimg.com/originals/f5/62/7b/f5627b38dfdf7b173255ef84128f6d.jpg"
+                        alt="Cat Couple 3">
+                </div>
+                <div class="p-4 pt-0 text-center">
+                    <h3 class="font-serif text-2xl italic">Ethereal Moments</h3>
+                    <p class="font-light text-sm opacity-60 leading-relaxed mt-4">I count the stars and imagine each one
+                        is a memory we haven't made yet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script>
-const fades=document.querySelectorAll(".fade")
-let i=0
-function reveal(){
-if(i<fades.length){fades[i].classList.add("show");i++}
-else{
-document.getElementById("final").classList.remove("hidden")
-setTimeout(()=>document.getElementById("final").classList.add("show"),50)
-}
-}
-document.getElementById("btn").onclick=reveal
-reveal()
+    <section id="games" class="py-32 bg-black/30">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2
+                class="font-serif text-5xl md:text-6xl text-center italic text-romantic-pink mb-24 underline underline-offset-[16px] decoration-1">
+                Passing Time</h2>
 
-const box=document.getElementById("bg-love")
-const emojis=["❤️","💖","💕","💗","💘","🌹"]
-for(let j=0;j<30;j++){
-let e=document.createElement("div")
-e.className="love"
-e.innerText=emojis[Math.floor(Math.random()*emojis.length)]
-e.style.left=Math.random()*100+"vw"
-e.style.fontSize=Math.random()*20+16+"px"
-e.style.animationDuration=Math.random()*6+6+"s"
-box.appendChild(e)
-}
-</script>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="neo-glass rounded-3xl flex flex-col overflow-hidden neon-glow">
+                    <div class="game-header flex justify-between items-center">
+                        <div class="text-left">
+                            <h3 class="font-serif text-2xl italic text-white/90">Heart Rhythm</h3>
+                            <p class="text-[8px] tracking-[0.4em] text-romantic-pink uppercase">Synchronization Level
+                            </p>
+                        </div>
+                        <div class="text-romantic-pink font-bold text-4xl" id="catch-score">0</div>
+                    </div>
+                    <div id="catch-arena" class="relative">
+                        <div id="catch-start-overlay"
+                            class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-luxury-dark/80 backdrop-blur-md">
+                            <div class="text-romantic-pink text-4xl mb-6 opacity-40 animate-pulse">❤️</div>
+                            <button onclick="startCatcher()"
+                                class="glow-btn px-12 py-4 rounded-full text-[10px] font-bold tracking-[0.4em] uppercase text-white shadow-xl">Start
+                                Connection</button>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="neo-glass rounded-3xl flex flex-col overflow-hidden neon-glow"
+                    style="transition-delay: 200ms">
+                    <div class="game-header flex justify-between items-center">
+                        <div class="text-left">
+                            <h3 class="font-serif text-2xl italic text-white/90">Soul Fragments</h3>
+                            <p class="text-[8px] tracking-[0.4em] text-romantic-pink uppercase">Matching Hearts</p>
+                        </div>
+                        <div class="text-romantic-pink font-bold" id="memory-moves">Moves: 0</div>
+                    </div>
+                    <div id="memory-grid" class="memory-grid"></div>
+                    <div class="p-6 bg-black/20 text-center">
+                        <button onclick="resetMemory()"
+                            class="opacity-30 hover:opacity-100 text-[9px] tracking-[0.4em] uppercase transition-all underline underline-offset-8">Reset
+                            Connection</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="final" class="py-48 px-6 text-center relative overflow-hidden">
+        <div class="relative z-10 max-w-2xl mx-auto space-y-12">
+            <h2 class="font-serif text-6xl md:text-8xl italic text-white/90">Waiting for US.</h2>
+            <div class="glass p-12 relative group overflow-hidden">
+                <div class="absolute -top-10 -left-10 text-[120px] text-white/5 font-serif select-none">"</div>
+                <p class="font-cursive text-3xl md:text-5xl text-romantic-pink/90 italic leading-snug">
+                    Come back soon, because home is wherever you are.
+                </p>
+                <div class="pt-10 flex flex-col items-center gap-4">
+                    <div class="w-12 h-[1px] bg-romantic-pink/20"></div>
+                    <span class="text-[10px] tracking-[0.6em] font-semibold opacity-30 uppercase italic">Always &
+                        Forever</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="heart-modal"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-6 bg-luxury-dark/98 backdrop-blur-3xl">
+        <div class="max-w-xl w-full text-center space-y-10">
+            <div class="relative w-48 h-48 mx-auto">
+                <div class="absolute -inset-4 bg-romantic-pink/20 blur-3xl rounded-full animate-pulse"></div>
+                <img src="https://i.pinimg.com/originals/db/7f/70/db7f70b77af656350b70b3469149480a.jpg"
+                    alt="Sweet Cat Couple"
+                    class="relative z-10 w-full rounded-3xl border border-white/10 p-2 glass shadow-2xl">
+            </div>
+            <h3 class="font-serif text-5xl md:text-6xl italic text-romantic-pink">Dearest You</h3>
+            <p class="font-sans font-light text-lg md:text-2xl leading-relaxed opacity-80 italic px-4 text-white/90">
+                "Every morning, my heart looks for your smile. Distance is just a temporary state of being — you are the
+                permanent state of my heart."
+            </p>
+            <div class="pt-10 flex flex-col items-center gap-6">
+                <button onclick="sendLove()"
+                    class="glow-btn px-10 py-4 rounded-full text-[10px] font-bold tracking-[0.3em] uppercase">Send Love
+                    Back ❤️</button>
+                <button onclick="closeHeartModal()"
+                    class="text-white/30 text-[9px] tracking-[0.5em] uppercase hover:text-white transition-all underline underline-offset-4">Close
+                    the Letter</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        const starCanvas = document.getElementById('star-canvas');
+        const ctx = starCanvas.getContext('2d');
+        let stars = [];
+        function resize() { starCanvas.width = window.innerWidth; starCanvas.height = window.innerHeight; }
+        class Star {
+            constructor() { this.reset(); }
+            reset() { this.x = Math.random() * starCanvas.width; this.y = Math.random() * starCanvas.height; this.size = Math.random() * 1.5; this.blink = Math.random() * 0.05; this.opacity = Math.random(); }
+            draw() { this.opacity += this.blink; if (this.opacity > 1 || this.opacity < 0) this.blink *= -1; ctx.fillStyle = `rgba(255, 133, 161, ${this.opacity * 0.5})`; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
+        }
+        function initStars() { stars = Array.from({ length: 100 }, () => new Star()); }
+        function starLoop() { ctx.clearRect(0, 0, starCanvas.width, starCanvas.height); stars.forEach(s => s.draw()); requestAnimationFrame(starLoop); }
+        window.addEventListener('resize', resize); resize(); initStars(); starLoop();
+
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMenu() { mobileMenu.classList.toggle('active'); document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto'; }
+        menuBtn.onclick = toggleMenu; closeBtn.onclick = toggleMenu;
+        document.querySelectorAll('.mobile-link').forEach(l => l.onclick = toggleMenu);
+
+        const phrases = ["Every heartbeat whispers your name...", "Counting every sunset until your return.", "My world is in color only when you're in it.", "Missing you isn't a habit, it's a heartbeat."];
+        let pIdx = 0, cIdx = 0, deleting = false;
+        const typedEl = document.getElementById('typed-text');
+        function typeLoop() {
+            const full = phrases[pIdx]; typedEl.textContent = deleting ? full.substring(0, cIdx - 1) : full.substring(0, cIdx + 1);
+            cIdx = deleting ? cIdx - 1 : cIdx + 1;
+            if (!deleting && cIdx === full.length) { setTimeout(() => deleting = true, 3000); }
+            else if (deleting && cIdx === 0) { deleting = false; pIdx = (pIdx + 1) % phrases.length; }
+            setTimeout(typeLoop, deleting ? 50 : 120);
+        }
+        typeLoop();
+
+        function openHeartModal() { document.getElementById('heart-modal').classList.remove('hidden'); document.getElementById('heart-modal').classList.add('flex'); document.body.style.overflow = 'hidden'; confetti({ particleCount: 150, spread: 80, origin: { y: 0.6 } }); }
+        function closeHeartModal() { document.getElementById('heart-modal').classList.add('hidden'); document.body.style.overflow = 'auto'; }
+        function sendLove() { confetti({ particleCount: 200, spread: 100, origin: { y: 0.8 }, colors: ['#ff85a1', '#ffffff'] }); }
+
+        const arena = document.getElementById('catch-arena');
+        const catchScoreEl = document.getElementById('catch-score');
+        let catchScore = 0, active = false;
+        function startCatcher() { document.getElementById('catch-start-overlay').style.display = 'none'; catchScore = 0; catchScoreEl.textContent = 0; active = true; let time = 30; const timer = setInterval(() => { time--; spawnLove(); if (time <= 0) { active = false; clearInterval(timer); document.getElementById('catch-start-overlay').style.display = 'flex'; } }, 800); }
+        function spawnLove() {
+            if (!active) return;
+            const dot = document.createElement('div'); dot.className = 'absolute text-3xl cursor-pointer pointer-events-auto';
+            dot.textContent = ['❤️', '💖', '💍', '💌', '🐱', '🐾', '😻'][Math.floor(Math.random() * 7)];
+            dot.style.left = Math.random() * 90 + '%'; dot.style.top = '-50px'; arena.appendChild(dot);
+            const anim = dot.animate([{ top: '-50px' }, { top: '450px' }], { duration: 3000 });
+            dot.onclick = () => { catchScore++; catchScoreEl.textContent = catchScore; dot.remove(); confetti({ particleCount: 10, origin: { x: dot.offsetLeft / window.innerWidth, y: 0.5 } }); };
+            anim.onfinish = () => dot.remove();
+        }
+
+        const grid = document.getElementById('memory-grid');
+        const movesEl = document.getElementById('memory-moves');
+        const syms = ['🍬', '🎁', '💎', '🌙', '🕊️', '🧸', '🍪', '🥨'];
+        let deck = [...syms, ...syms], flipped = [], matched = 0, moves = 0;
+        function initMemory() { grid.innerHTML = ''; deck.sort(() => Math.random() - 0.5); deck.forEach(s => { const c = document.createElement('div'); c.className = 'aspect-square glass rounded-xl flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-white/5'; c.innerHTML = `<span class="opacity-0 transition-opacity transform scale-0">${s}</span>`; c.onclick = () => flipMemory(c, s); grid.appendChild(c); }); }
+        function flipMemory(el, s) {
+            if (flipped.length < 2 && !el.dataset.flipped) {
+                el.dataset.flipped = true; el.children[0].classList.remove('opacity-0', 'scale-0'); el.classList.add('bg-white/10', 'border-romantic-pink'); flipped.push({ el, s });
+                if (flipped.length === 2) { moves++; movesEl.textContent = `Moves: ${moves}`; if (flipped[0].s === flipped[1].s) { matched++; flipped = []; if (matched === syms.length) confetti({ particleCount: 100 }); } else { setTimeout(() => { flipped.forEach(f => { delete f.el.dataset.flipped; f.el.children[0].classList.add('opacity-0', 'scale-0'); f.el.classList.remove('bg-white/10', 'border-romantic-pink'); }); flipped = []; }, 800); } }
+            }
+        }
+        function resetMemory() { moves = 0; matched = 0; movesEl.textContent = 'Moves: 0'; initMemory(); }
+        initMemory();
+    </script>
 </body>
+
 </html>
